@@ -1,7 +1,7 @@
 package util
 
 import (
-	"github.com/kenbragn/gosync-reborn/patcher"
+	"github.com/AccelByte/gosync-reborn/patcher"
 	"github.com/magiconair/properties/assert"
 	"testing"
 )

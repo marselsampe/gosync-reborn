@@ -6,9 +6,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/kenbragn/gosync-reborn/chunks"
-	"github.com/kenbragn/gosync-reborn/index"
-	"github.com/kenbragn/gosync-reborn/util/readers"
+	"github.com/AccelByte/gosync-reborn/chunks"
+	"github.com/AccelByte/gosync-reborn/index"
+	"github.com/AccelByte/gosync-reborn/util/readers"
 )
 
 func TestChecksumGenerationEndsWithFilechecksum(t *testing.T) {

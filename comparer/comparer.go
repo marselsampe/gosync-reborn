@@ -9,9 +9,9 @@ import (
 	"io"
 	"sync/atomic"
 
-	"github.com/kenbragn/gosync-reborn/chunks"
-	"github.com/kenbragn/gosync-reborn/circularbuffer"
-	"github.com/kenbragn/gosync-reborn/filechecksum"
+	"github.com/AccelByte/gosync-reborn/chunks"
+	"github.com/AccelByte/gosync-reborn/circularbuffer"
+	"github.com/AccelByte/gosync-reborn/filechecksum"
 )
 
 const (

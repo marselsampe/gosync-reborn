@@ -10,7 +10,7 @@ share and access the underlying circular buffer storage, and use the implementat
 package rollsum
 
 import (
-	"github.com/kenbragn/gosync-reborn/circularbuffer"
+	"github.com/AccelByte/gosync-reborn/circularbuffer"
 )
 
 func NewRollsum32(blocksize uint) *Rollsum32 {

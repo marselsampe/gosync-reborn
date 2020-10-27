@@ -1,6 +1,6 @@
 package manifests
 
-import "github.com/kenbragn/gosync-reborn/patcher"
+import "github.com/AccelByte/gosync-reborn/patcher"
 
 type PatchingBlockSpan struct {
 	MissingSpans []patcher.MissingBlockSpan `json:"missingBlockSpans"`
