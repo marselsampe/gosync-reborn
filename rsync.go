@@ -8,17 +8,16 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
-	"runtime"
 
-	"github.com/kenbragn/gosync-reborn/blocksources"
-	"github.com/kenbragn/gosync-reborn/chunks"
-	"github.com/kenbragn/gosync-reborn/comparer"
-	"github.com/kenbragn/gosync-reborn/filechecksum"
-	"github.com/kenbragn/gosync-reborn/index"
-	"github.com/kenbragn/gosync-reborn/manifests"
-	"github.com/kenbragn/gosync-reborn/patcher"
-	"github.com/kenbragn/gosync-reborn/patcher/sequential"
-	"github.com/kenbragn/gosync-reborn/util"
+	"github.com/AccelByte/gosync-reborn/blocksources"
+	"github.com/AccelByte/gosync-reborn/chunks"
+	"github.com/AccelByte/gosync-reborn/comparer"
+	"github.com/AccelByte/gosync-reborn/filechecksum"
+	"github.com/AccelByte/gosync-reborn/index"
+	"github.com/AccelByte/gosync-reborn/manifests"
+	"github.com/AccelByte/gosync-reborn/patcher"
+	"github.com/AccelByte/gosync-reborn/patcher/sequential"
+	"github.com/AccelByte/gosync-reborn/util"
 )
 
 const (
@@ -27,7 +26,7 @@ const (
 
 var (
 	// DefaultConcurrency is the default concurrency level used by patching and downloading
-	DefaultConcurrency = runtime.NumCPU()
+	DefaultConcurrency = 1
 )
 
 // ReadSeekerAt is the combinaton of ReadSeeker and ReaderAt interfaces

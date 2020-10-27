@@ -2,7 +2,7 @@ package rollsum
 
 import (
 	"bytes"
-	"github.com/kenbragn/gosync-reborn/circularbuffer"
+	"github.com/AccelByte/gosync-reborn/circularbuffer"
 	"hash"
 	"io"
 	"testing"

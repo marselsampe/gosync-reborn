@@ -25,7 +25,7 @@ package index
 import (
 	"bytes"
 	"encoding/binary"
-	"github.com/kenbragn/gosync-reborn/chunks"
+	"github.com/AccelByte/gosync-reborn/chunks"
 	"sort"
 )
 

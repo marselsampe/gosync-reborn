@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/kenbragn/gosync-reborn/patcher"
+	"github.com/AccelByte/gosync-reborn/patcher"
 )
 
 // BlockSourceRequester does synchronous requests on a remote source of blocks

@@ -1,7 +1,7 @@
 package util
 
 import (
-	"github.com/kenbragn/gosync-reborn/manifests"
+	"github.com/AccelByte/gosync-reborn/manifests"
 	"net/url"
 )
 

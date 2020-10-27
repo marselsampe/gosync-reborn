@@ -2,7 +2,7 @@ package blocksources
 
 import (
 	"fmt"
-	"github.com/kenbragn/gosync-reborn/patcher"
+	"github.com/AccelByte/gosync-reborn/patcher"
 )
 
 // errorWatcher is a small helper object

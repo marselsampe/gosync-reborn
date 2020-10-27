@@ -1,7 +1,7 @@
 package index
 
 import (
-	"github.com/kenbragn/gosync-reborn/chunks"
+	"github.com/AccelByte/gosync-reborn/chunks"
 	"math/rand"
 	"sort"
 	"testing"

@@ -3,8 +3,8 @@ package sequential
 import (
 	"bytes"
 	"crypto/md5"
-	"github.com/kenbragn/gosync-reborn/blocksources"
-	"github.com/kenbragn/gosync-reborn/patcher"
+	"github.com/AccelByte/gosync-reborn/blocksources"
+	"github.com/AccelByte/gosync-reborn/patcher"
 	"io"
 	"io/ioutil"
 	"strings"

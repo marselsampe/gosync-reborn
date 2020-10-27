@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kenbragn/gosync-reborn/filechecksum"
-	"github.com/kenbragn/gosync-reborn/patcher"
+	"github.com/AccelByte/gosync-reborn/filechecksum"
+	"github.com/AccelByte/gosync-reborn/patcher"
 )
 
 var PORT = 8000

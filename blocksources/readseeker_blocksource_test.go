@@ -2,7 +2,7 @@ package blocksources
 
 import (
 	"bytes"
-	"github.com/kenbragn/gosync-reborn/patcher"
+	"github.com/AccelByte/gosync-reborn/patcher"
 	"testing"
 )
 

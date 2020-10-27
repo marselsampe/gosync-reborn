@@ -11,8 +11,8 @@ import (
 	"hash"
 	"io"
 
-	"github.com/kenbragn/gosync-reborn/chunks"
-	"github.com/kenbragn/gosync-reborn/rollsum"
+	"github.com/AccelByte/gosync-reborn/chunks"
+	"github.com/AccelByte/gosync-reborn/rollsum"
 )
 
 // Rsync swapped to this after version 30

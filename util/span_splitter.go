@@ -1,6 +1,6 @@
 package util
 
-import "github.com/kenbragn/gosync-reborn/patcher"
+import "github.com/AccelByte/gosync-reborn/patcher"
 
 func SplitSpan(span patcher.MissingBlockSpan, newArrSpan []patcher.MissingBlockSpan, maxAllowedSpan uint) []patcher.MissingBlockSpan {
 	if span.EndBlock - span.StartBlock <= maxAllowedSpan {

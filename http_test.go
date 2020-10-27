@@ -8,11 +8,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/kenbragn/gosync-reborn/blocksources"
-	"github.com/kenbragn/gosync-reborn/comparer"
-	"github.com/kenbragn/gosync-reborn/filechecksum"
-	"github.com/kenbragn/gosync-reborn/indexbuilder"
-	"github.com/kenbragn/gosync-reborn/patcher"
+	"github.com/AccelByte/gosync-reborn/blocksources"
+	"github.com/AccelByte/gosync-reborn/comparer"
+	"github.com/AccelByte/gosync-reborn/filechecksum"
+	"github.com/AccelByte/gosync-reborn/indexbuilder"
+	"github.com/AccelByte/gosync-reborn/patcher"
 )
 
 // due to short example strings, use a very small block size

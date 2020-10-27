@@ -3,7 +3,7 @@ package index
 import (
 	"testing"
 
-	"github.com/kenbragn/gosync-reborn/chunks"
+	"github.com/AccelByte/gosync-reborn/chunks"
 )
 
 // Weak checksums must be 4 bytes
