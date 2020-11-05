@@ -24,11 +24,6 @@ const (
 	megabyte = 1000000
 )
 
-var (
-	// DefaultConcurrency is the default concurrency level used by patching and downloading
-	DefaultConcurrency = 1
-)
-
 // ReadSeekerAt is the combinaton of ReadSeeker and ReaderAt interfaces
 type ReadSeekerAt interface {
 	io.ReadSeeker
@@ -50,6 +45,8 @@ type RSync struct {
 	Summary FileSummary
 
 	OnClose []closer
+
+	Concurrency int // Concurrency is the concurrency level used by diffing, patching and downloading
 }
 
 type closer interface {
@@ -98,6 +95,7 @@ func MakeRSync(
 	Source,
 	OutFile string,
 	Summary FileSummary,
+	Concurrency int,
 ) (r *RSync, err error) {
 	useTempFile := false
 	if useTempFile, err = IsSameFile(InputFile, OutFile); err != nil {
@@ -145,7 +143,7 @@ func MakeRSync(
 
 	source = blocksources.NewHttpBlockSource(
 		Source,
-		DefaultConcurrency,
+		Concurrency,
 		resolver,
 		&filechecksum.HashVerifier{
 			Hash:                md5.New(),
@@ -164,6 +162,7 @@ func MakeRSync(
 			&fileCloser{out, outFilename},
 			copier,
 		},
+		Concurrency: Concurrency,
 	}
 
 	return
@@ -171,7 +170,7 @@ func MakeRSync(
 
 // Patch the files
 func (rsync *RSync) Patch() (err error) {
-	numMatchers := int64(DefaultConcurrency)
+	numMatchers := int64(rsync.Concurrency)
 	blockSize := rsync.Summary.GetBlockSize()
 	sectionSize := rsync.Summary.GetFileSize() / numMatchers
 	sectionSize += int64(blockSize) - (sectionSize % int64(blockSize))
@@ -232,7 +231,7 @@ func (rsync *RSync) CalculateDiffAndMarshall() (diff string, err error) {
 }
 
 func (rsync *RSync) CalculateDiffV2() (diff *manifests.PatchingBlockSpan, err error) {
-	numMatchers := int64(DefaultConcurrency)
+	numMatchers := int64(rsync.Concurrency)
 	blockSize := rsync.Summary.GetBlockSize()
 	sectionSize := rsync.Summary.GetFileSize() / numMatchers
 	sectionSize += int64(blockSize) - (sectionSize % int64(blockSize))

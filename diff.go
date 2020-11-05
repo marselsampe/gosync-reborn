@@ -26,7 +26,30 @@ func CalculateDiff(localFilePath string, summaryFilePath string, baseLocalPath s
 		}
 	}()
 
-	span, errDiff := doCalculateDiff(localFilePath, summaryFilePath, remoteReferenceFileURL, outputFilePath)
+	span, errDiff := doCalculateDiff(localFilePath, summaryFilePath, remoteReferenceFileURL, outputFilePath, 1)
+	if errDiff != nil {
+		return nil, errDiff
+	}
+
+	return span, nil
+}
+
+func CalculateDiffV2(localFilePath string, summaryFilePath string, baseLocalPath string, concurrency int) (patchingBlockSpan *manifests.PatchingBlockSpan, errCalculateDiff error) {
+	remoteReferenceFileURL := "http://localhost"
+	outputFilePath := path.Join( baseLocalPath, "inexistentoutputfilepath")
+
+	defer func() {
+		if p := recover(); p != nil {
+			fmt.Fprintln(os.Stderr, p)
+			patchingBlockSpan = nil
+			errCalculateDiff = errors.New("Recover from panic")
+		}
+	}()
+
+	if concurrency <= 0 {
+		concurrency = 1
+	}
+	span, errDiff := doCalculateDiff(localFilePath, summaryFilePath, remoteReferenceFileURL, outputFilePath, concurrency)
 	if errDiff != nil {
 		return nil, errDiff
 	}
@@ -54,7 +77,7 @@ func GenerateFullMissingBytesDiff(summaryFilePath string) (patchingBlockSpan *ma
 
 }
 
-func doCalculateDiff(localFilename string, summaryFile string, remoteReferenceURL string, outputFilePath string) (*manifests.PatchingBlockSpan, error) {
+func doCalculateDiff(localFilename string, summaryFile string, remoteReferenceURL string, outputFilePath string, concurrency int) (*manifests.PatchingBlockSpan, error) {
 
 	outFilename := localFilename
 	if outputFilePath != "" {
@@ -71,6 +94,7 @@ func doCalculateDiff(localFilename string, summaryFile string, remoteReferenceUR
 		remoteReferenceURL,
 		outFilename,
 		basicSummary,
+		concurrency,
 	)
 
 	if err != nil {
