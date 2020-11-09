@@ -1,3 +1,8 @@
+Release v0.2.1 (2020-11-09)
+===========================
+### Added
+1. Expose ReadBasicSummary functionality
+
 Release v0.2.0 (2020-11-03)
 ===========================
 ### Changed

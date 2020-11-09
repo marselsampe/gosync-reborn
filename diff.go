@@ -77,6 +77,10 @@ func GenerateFullMissingBytesDiff(summaryFilePath string) (patchingBlockSpan *ma
 
 }
 
+func ReadBasicSummary(summaryFilePath string) (summary *BasicSummary, errCreateBasicSummary error) {
+	return createBasicSummary(summaryFilePath)
+}
+
 func doCalculateDiff(localFilename string, summaryFile string, remoteReferenceURL string, outputFilePath string, concurrency int) (*manifests.PatchingBlockSpan, error) {
 
 	outFilename := localFilename
